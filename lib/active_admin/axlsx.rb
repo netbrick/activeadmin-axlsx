@@ -2,7 +2,6 @@ require 'active_admin'
 require 'active_admin/axlsx/version'
 require 'active_admin/axlsx/builder'
 require 'active_admin/axlsx/dsl'
-require 'active_admin/axlsx/data_access_extension'
 require 'active_admin/axlsx/resource_extension'
 require 'active_admin/axlsx/resource_controller_extension'
 
@@ -21,8 +20,5 @@ class Railtie < ::Rails::Railtie
     ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
     ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
     ActiveAdmin::ResourceController.send :include, ActiveAdmin::Axlsx::ResourceControllerExtension
-    ActiveAdmin::ResourceController::DataAccess.send :include, ActiveAdmin::Axlsx::DataAccessExtension
   end
 end
-
-
